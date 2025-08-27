@@ -3,6 +3,7 @@
 # npm i sequelize
 
 - Como conectar: https://sequelize.org/docs/v6/getting-started/
+- Para criar models: https://sequelize.org/docs/v6/core-concepts/model-basics/
 
 # npm i mysql2
 
