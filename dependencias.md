@@ -2,6 +2,8 @@
 
 # npm i sequelize
 
+- Como conectar: https://sequelize.org/docs/v6/getting-started/
+
 # npm i mysql2
 
 # npm i cors
