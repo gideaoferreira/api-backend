@@ -4,6 +4,8 @@
 
 # npm i mysql2
 
+# npm i cors
+
 # npm i -D nodemon
 
 # Projeto utilizará `type=module` no package.json
