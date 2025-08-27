@@ -8,6 +8,7 @@ const sequelize = new Sequelize('api-db', 'root', '', {
 async function dbConnection() {
     try {
         await sequelize.authenticate()
+        sequelize.sync({ force: false })
         console.info('Banco de dados conectado com sucesso!')
     } catch (error) {
         console.error(`Erro ao tentar conectar ao banco de dados: ${error}`)

@@ -1,14 +1,16 @@
 import express from 'express'
 import cors from 'cors'
 import sequelize from './src/database/db-connect.js'
+import User from './src/models/user.js'
 
 const app = express()
 
 app.use(express.json())
 app.use(cors())
 
-app.get('/', function (request, response) {
-    return response.json('Teste')
+app.get('/', async function (request, response) {
+    const users = await User.findAll()
+    return response.json(users)
 })
 
 app.listen(3000, () => {
