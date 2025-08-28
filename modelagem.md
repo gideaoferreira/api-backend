@@ -14,3 +14,14 @@
 - listUsersController
 - updateUserController
 - deleteUserController
+
+#### Criar model/table de produtos
+
+- Definir as colunas da tabela usando sequelize.
+
+#### Criar as controllers de produto
+
+- createProductController
+- listProductController
+- updateProductController
+- deleteProductController
