@@ -1,6 +1,6 @@
 import Products from "../../models/products.js";
 
-async function createProducts(request, response) {
+async function createProductsController(request, response) {
   const productsData = request.body;
 
   const products = await Products.create({
@@ -15,4 +15,4 @@ async function createProducts(request, response) {
   return response.status(201).json(products);
 }
 
-export default createProducts;
+export default createProductsController;
