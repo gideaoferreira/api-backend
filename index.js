@@ -9,6 +9,8 @@ import createProductsController from "./src/controllers/products/create-products
 import listProductsController from "./src/controllers/products/list-products-controller.js";
 import updateProductsController from "./src/controllers/products/update-products-controller.js";
 import deleteProductsController from "./src/controllers/products/delete-products-controller.js";
+import listOrdersController from "./src/controllers/orders/list-orders-controller.js";
+import createOrdersController from "./src/controllers/orders/create-orders-controller.js";
 
 const app = express();
 
@@ -24,6 +26,9 @@ app.post("/products", createProductsController);
 app.get("/products", listProductsController);
 app.put("/products/:id", updateProductsController);
 app.delete("/products/:id", deleteProductsController);
+
+app.get("/orders", listOrdersController);
+app.post("/orders", createOrdersController);
 
 app.listen(3000, () => {
   console.log(`App is running`);
