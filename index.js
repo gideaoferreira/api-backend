@@ -11,6 +11,8 @@ import updateProductsController from "./src/controllers/products/update-products
 import deleteProductsController from "./src/controllers/products/delete-products-controller.js";
 import listOrdersController from "./src/controllers/orders/list-orders-controller.js";
 import createOrdersController from "./src/controllers/orders/create-orders-controller.js";
+import updateOrdersController from "./src/controllers/orders/update-orders-controller.js";  
+import deleteOdersController from "./src/controllers/orders/delete-orders-controler.js";
 
 const app = express();
 
@@ -29,6 +31,8 @@ app.delete("/products/:id", deleteProductsController);
 
 app.get("/orders", listOrdersController);
 app.post("/orders", createOrdersController);
+app.put("/orders/:id", updateOrdersController);
+app.delete("/orders/:id", deleteOdersController)
 
 app.listen(3000, () => {
   console.log(`App is running`);
