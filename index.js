@@ -13,6 +13,7 @@ import listOrdersController from "./src/controllers/orders/list-orders-controlle
 import createOrdersController from "./src/controllers/orders/create-orders-controller.js";
 import updateOrdersController from "./src/controllers/orders/update-orders-controller.js";  
 import deleteOdersController from "./src/controllers/orders/delete-orders-controler.js";
+import getUserByIdController from "./src/controllers/user/get- user-by-id-controller.js";
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/users", listUsersController);
+app.get("/user/:id", getUserByIdController)
 app.post("/user", createUserController);
 app.put("/user/:id", updateUserController);
 app.delete("/user/:id", deleteUserController);

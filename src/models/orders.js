@@ -1,6 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/db-connect.js";
 
+
 const Orders = sequelize.define(
   "Orders",
   {
@@ -19,6 +20,7 @@ const Orders = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    
   },
 
   {
