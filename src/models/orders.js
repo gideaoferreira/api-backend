@@ -1,5 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/db-connect.js";
+import User from "./user.js";
+import Products from "./products.js";
 
 
 const Orders = sequelize.define(
@@ -28,5 +30,11 @@ const Orders = sequelize.define(
     timestamps: true,
   }
 );
+
+Orders.belongsTo(User, {foreignKey:"client_id"});
+User.hasMany(Orders, {foreignKey:"client_id"});
+
+Orders.belongsTo(Products, {foreignKey:"store_id"});
+Products.hasMany(Orders,{foreignKey:"store_id"});
 
 export default Orders;
