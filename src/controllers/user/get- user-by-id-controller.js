@@ -1,4 +1,4 @@
-import User from "../../models/user"
+import User from "../../models/user.js"
 
 async function getUserByIdController(request, response) {
     const userId = request.params.id
