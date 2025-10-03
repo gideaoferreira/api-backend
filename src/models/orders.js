@@ -13,7 +13,7 @@ const Orders = sequelize.define(
       autoIncrement: true,
     },
 
-    client_id: {
+    customer_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -31,10 +31,9 @@ const Orders = sequelize.define(
   }
 );
 
-Orders.belongsTo(User, {foreignKey:"client_id"});
-User.hasMany(Orders, {foreignKey:"client_id"});
+Orders.belongsTo(User, {foreignKey:"customer_id"});
+User.hasMany(Orders, {foreignKey:"customer_id"});
 
-Orders.belongsTo(Products, {foreignKey:"store_id"});
-Products.hasMany(Orders,{foreignKey:"store_id"});
+
 
 export default Orders;

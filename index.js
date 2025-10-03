@@ -14,6 +14,7 @@ import createOrdersController from "./src/controllers/orders/create-orders-contr
 import updateOrdersController from "./src/controllers/orders/update-orders-controller.js";  
 import deleteOdersController from "./src/controllers/orders/delete-orders-controler.js";
 import getUserByIdController from "./src/controllers/user/get- user-by-id-controller.js";
+import getByIdProductsController from "./src/controllers/products/get-by-id-products-controller.js";
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.delete("/user/:id", deleteUserController);
 
 app.post("/products", createProductsController);
 app.get("/products", listProductsController);
+app.get("/product/:id", getByIdProductsController);
 app.put("/products/:id", updateProductsController);
 app.delete("/products/:id", deleteProductsController);
 
