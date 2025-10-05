@@ -15,6 +15,10 @@ import updateOrdersController from "./src/controllers/orders/update-orders-contr
 import deleteOdersController from "./src/controllers/orders/delete-orders-controler.js";
 import getUserByIdController from "./src/controllers/user/get- user-by-id-controller.js";
 import getByIdProductsController from "./src/controllers/products/get-by-id-products-controller.js";
+import createStoreController from "./src/controllers/store/create-store-controller.js";
+import listStoreController from "./src/controllers/store/list-store-controller.js";
+import updateStoreController from "./src/controllers/store/update-store-controller.js";
+import deleteStoreController from "./src/controllers/store/delete-store-controller.js";
 
 const app = express();
 
@@ -37,6 +41,11 @@ app.get("/orders", listOrdersController);
 app.post("/orders", createOrdersController);
 app.put("/orders/:id", updateOrdersController);
 app.delete("/orders/:id", deleteOdersController)
+
+app.post("/store", createStoreController);
+app.get("/store", listStoreController);
+app.put("/store/:id", updateStoreController);
+app.delete("/store/:id", deleteStoreController)
 
 app.listen(3000, () => {
   console.log(`App is running`);

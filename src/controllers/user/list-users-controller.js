@@ -2,8 +2,12 @@ import User from "../../models/user.js";
 import Orders from "../../models/orders.js";
 
 async function listUsersController(request, response) {
-    const users = await User.findAll({include: Orders})
+ try{
+       const users = await User.findAll({include: Orders})
     response.status(200).json(users)
+ }catch(error){
+    return response.status(500).json(error)
+ }
 }
 
 export default listUsersController

@@ -1,13 +1,14 @@
 import Orders from "../../models/orders.js"
 
 async function updateOrdersController(request, response) {
-    const ordersId = request.params.id 
+    try{
+        const ordersId = request.params.id 
     const ordersData = request.body
 
     await Orders.update (
         {
             customer_id: ordersData.customer_id,
-            store_id: ordersData.store_id
+            product_id: ordersData.product_id
 
         },
         {
@@ -16,9 +17,13 @@ async function updateOrdersController(request, response) {
             }
         }
     ) 
-   return response.status(201).json({
+     return response.status(201).json({
         message: 'Pedido atualizado com sucesso!'
     })
+    }catch (error){
+        return response.status(500).jason(error)
+    }
+  
 }
 
 export default updateOrdersController

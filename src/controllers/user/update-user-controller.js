@@ -1,7 +1,8 @@
 import User from "../../models/user.js";
 
 async function updateUserController(request, response) {
-    const userId = request.params.id
+    try{
+        const userId = request.params.id
     const userData = request.body
 
     await User.update(
@@ -23,6 +24,9 @@ async function updateUserController(request, response) {
     return response.status(201).json({
         message: 'Usário atualizado com sucesso!'
     })
+    }catch(error){
+        return response.status(500).json(error)
+    }
 }
 
 export default updateUserController

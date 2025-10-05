@@ -4,7 +4,7 @@ async function createOrdersController(request, response) {
   try {
     const orderData = {
     customer_id: request.body.customer_id,
-    store_id: request.body.store_id,
+    product_id: request.body.product_id,
   };
   const order = await Orders.create(orderData);
 
