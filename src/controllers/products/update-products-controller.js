@@ -1,7 +1,8 @@
 import Products from "../../models/products.js";
 
 async function updateProductsController(request, response) {
-  const productId = request.params.id;
+  try{
+    const productId = request.params.id;
   const data = {
     name: request.body.name,
     price: request.body.price,
@@ -10,14 +11,13 @@ async function updateProductsController(request, response) {
     description: request.body.description,
     image: request.body.image,
   };
-
   await Products.update(data, {
     where: {
       id: productId,
     },
   });
-
-  return response.status(201).json(true);
+  }catch(error){
+    return response.status(500).json(error)
+  }
 }
-
 export default updateProductsController;
