@@ -11,7 +11,7 @@ import updateProductsController from "./src/controllers/products/update-products
 import deleteProductsController from "./src/controllers/products/delete-products-controller.js";
 import listOrdersController from "./src/controllers/orders/list-orders-controller.js";
 import createOrdersController from "./src/controllers/orders/create-orders-controller.js";
-import updateOrdersController from "./src/controllers/orders/update-orders-controller.js";  
+import updateOrdersController from "./src/controllers/orders/update-orders-controller.js";
 import deleteOdersController from "./src/controllers/orders/delete-orders-controler.js";
 import getUserByIdController from "./src/controllers/user/get- user-by-id-controller.js";
 import getByIdProductsController from "./src/controllers/products/get-by-id-products-controller.js";
@@ -19,6 +19,7 @@ import createStoreController from "./src/controllers/store/create-store-controll
 import listStoreController from "./src/controllers/store/list-store-controller.js";
 import updateStoreController from "./src/controllers/store/update-store-controller.js";
 import deleteStoreController from "./src/controllers/store/delete-store-controller.js";
+import { setupAssociations } from "./src/associations/associations.js";
 
 const app = express();
 
@@ -26,7 +27,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/users", listUsersController);
-app.get("/user/:id", getUserByIdController)
+app.get("/user/:id", getUserByIdController);
 app.post("/user", createUserController);
 app.put("/user/:id", updateUserController);
 app.delete("/user/:id", deleteUserController);
@@ -40,12 +41,14 @@ app.delete("/products/:id", deleteProductsController);
 app.get("/orders", listOrdersController);
 app.post("/orders", createOrdersController);
 app.put("/orders/:id", updateOrdersController);
-app.delete("/orders/:id", deleteOdersController)
+app.delete("/orders/:id", deleteOdersController);
 
 app.post("/store", createStoreController);
 app.get("/store", listStoreController);
 app.put("/store/:id", updateStoreController);
-app.delete("/store/:id", deleteStoreController)
+app.delete("/store/:id", deleteStoreController);
+
+setupAssociations();
 
 app.listen(3000, () => {
   console.log(`App is running`);

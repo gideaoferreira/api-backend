@@ -2,6 +2,7 @@ import User from "../../models/user.js";
 
 async function createUserController(request, response) {
   try {
+    console.log(request.body);
     const userData = request.body;
 
     const user = await User.create({
@@ -11,6 +12,7 @@ async function createUserController(request, response) {
       cpf: userData.cpf,
       email: userData.email,
       password: userData.password,
+      status: userData.status,
     });
 
     return response.status(201).json(user);
