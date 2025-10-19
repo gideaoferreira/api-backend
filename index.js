@@ -19,7 +19,7 @@ import createStoreController from "./src/controllers/store/create-store-controll
 import listStoreController from "./src/controllers/store/list-store-controller.js";
 import updateStoreController from "./src/controllers/store/update-store-controller.js";
 import deleteStoreController from "./src/controllers/store/delete-store-controller.js";
-import { setupAssociations } from "./src/associations/associations.js";
+import { setupAssociations } from "./src/models/associations.js";
 import getByIdOrdersController from "./src/controllers/orders/get-by-id-orders.js";
 
 const app = express();

@@ -2,12 +2,26 @@ import Orders from "../../models/orders.js";
 import User from "../../models/user.js";
 import Products from "../../models/products.js";
 
-async function listOrdersController(request, response) {
+async function listOrdersController(req, res) {
   try {
-    const orders = await Orders.findAll();
-    return response.status(200).json(orders);
+    const orders = await Orders.findAll({
+      include: [
+        {
+          model: User,
+          as: "user", // mesmo alias usado em associate
+          attributes: ["id", "name", "surname"],
+        },
+        {
+          model: Products,
+          as: "product",
+          attributes: ["id", "name", "price"],
+        },
+      ],
+    });
+    res.json(orders);
   } catch (error) {
-    return response.status(500).json(error);
+    console.error("Erro ao listar ordens:", error);
+    res.status(500).json({ error: "Erro ao listar ordens" });
   }
 }
 

@@ -1,6 +1,6 @@
-import User from "../models/user.js";
-import Orders from "../models/orders.js";
-import Products from "../models/products.js";
+import User from "./user.js";
+import Orders from "./orders.js";
+import Products from "./products.js";
 
 export function setupAssociations() {
   Orders.belongsTo(User, { as: "user", foreignKey: "customer_id" });
