@@ -28,10 +28,10 @@ const Orders = sequelize.define(
   }
 );
 
-// Orders.belongsTo(User, { foreignKey: "customer_id" });
-// User.hasMany(Orders, { foreignKey: "customer_id" });
+// Orders.belongsTo(User, { as: "user", foreignKey: "customer_id" });
+// User.hasMany(Orders, { as: "product", foreignKey: "customer_id" });
 
-// Orders.belongsTo(Products, { foreignKey: "product_id" });
-// Products.hasMany(Orders, { foreignKey: "product_id" });
+// Orders.belongsTo(Products, { as: "product", foreignKey: "product_id" });
+// Products.hasMany(Orders, { as: "orders", foreignKey: "product_id" });
 
 export default Orders;

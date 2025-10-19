@@ -3,9 +3,10 @@ import Orders from "../models/orders.js";
 import Products from "../models/products.js";
 
 export function setupAssociations() {
-  User.hasMany(Orders, { foreignKey: "customer_id", as: "orders" });
-  Orders.belongsTo(User, { foreignKey: "customer_id", as: "user" });
+  Orders.belongsTo(User, { as: "user", foreignKey: "customer_id" });
+  User.hasMany(Orders, { as: "orders", foreignKey: "customer_id" });
 
-  Products.hasMany(Orders, { foreignKey: "product_id", as: "orders" });
-  Orders.belongsTo(Products, { foreignKey: "product_id", as: "product" });
+  // Relação Orders ↔ Products
+  Orders.belongsTo(Products, { as: "product", foreignKey: "product_id" });
+  Products.hasMany(Orders, { as: "orders", foreignKey: "product_id" });
 }

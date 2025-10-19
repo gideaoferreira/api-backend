@@ -20,11 +20,14 @@ import listStoreController from "./src/controllers/store/list-store-controller.j
 import updateStoreController from "./src/controllers/store/update-store-controller.js";
 import deleteStoreController from "./src/controllers/store/delete-store-controller.js";
 import { setupAssociations } from "./src/associations/associations.js";
+import getByIdOrdersController from "./src/controllers/orders/get-by-id-orders.js";
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+setupAssociations();
 
 app.get("/users", listUsersController);
 app.get("/user/:id", getUserByIdController);
@@ -39,6 +42,7 @@ app.put("/products/:id", updateProductsController);
 app.delete("/products/:id", deleteProductsController);
 
 app.get("/orders", listOrdersController);
+app.get("order/:id", getByIdOrdersController);
 app.post("/orders", createOrdersController);
 app.put("/orders/:id", updateOrdersController);
 app.delete("/orders/:id", deleteOdersController);
@@ -47,8 +51,6 @@ app.post("/store", createStoreController);
 app.get("/store", listStoreController);
 app.put("/store/:id", updateStoreController);
 app.delete("/store/:id", deleteStoreController);
-
-setupAssociations();
 
 app.listen(3000, () => {
   console.log(`App is running`);
